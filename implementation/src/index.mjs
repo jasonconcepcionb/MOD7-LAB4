@@ -34,7 +34,6 @@ export const handler = async (event) => {
 
   // ── GET /clientes/{clienteId}/cuentas ──
   if (httpMethod === "GET") {
-    // Datos simulados (en producción vendrían de DynamoDB o RDS)
     const cuentas = {
       CLI001: [
         {
@@ -90,8 +89,6 @@ export const handler = async (event) => {
   }
 
   // ── POST /clientes/{clienteId}/cuentas (para Lab Propuesto) ──
-  // --- LABORATORIO PROPUESTO: DESCOMENTAR PARA IMPLEMENTAR EL POST ---
-  /*
   if (httpMethod === "POST") {
     let body;
     try {
@@ -112,7 +109,6 @@ export const handler = async (event) => {
 
     const { tipo, moneda, titular } = body;
 
-    // Validación de campos requeridos
     if (!tipo || !moneda || !titular) {
       return {
         statusCode: 400,
@@ -127,7 +123,6 @@ export const handler = async (event) => {
       };
     }
 
-    // Simular creación de cuenta
     const nuevaCuenta = {
       numeroCuenta: Math.floor(Math.random() * 10000000000).toString().padStart(10, '0'),
       tipo: tipo.toUpperCase(),
@@ -143,7 +138,6 @@ export const handler = async (event) => {
       body: JSON.stringify(nuevaCuenta),
     };
   }
-  */
 
   // ── Método no soportado ──
   return {
